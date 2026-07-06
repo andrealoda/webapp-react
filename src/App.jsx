@@ -1,5 +1,6 @@
 // App.jsx
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import DefaultLayout from './layouts/DefaultLayout'
 import Home from './pages/Home'
 import Details from './pages/Details'
 
@@ -10,9 +11,14 @@ function App() {
 
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/details" element={<Details />} />
-      </Routes >
+
+        <Route element={<DefaultLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/details" element={<Details />} />
+        </Route>
+
+      </Routes>
+
     </BrowserRouter >
 
   )
