@@ -30,7 +30,7 @@ export default function Details() {
 
 
                 <div className="card my-4 mx-auto" style={{ minWidth: '18rem' }}>
-                    <img src={movie ? movie.image : "https://placehold.co/600x400?text=Hello+World"} className="card-img-top" alt={movie ? movie.title : ""} />
+                    <img src={`http://localhost:3000/movies_cover/${movie.image}`} className="card-img-top" alt={movie ? movie.title : ""} />
                     <div className="card-body">
                         <h5 className="card-title">{movie ? movie.title : 'Movie Title'}</h5>
                         <p className="card-text">{movie ? movie.abstract : 'Movie Abstract'}</p>

@@ -25,7 +25,7 @@ export default function MovieCard() {
             {movies.map((movie) => (
                 <div className='col' key={movie.id}>
                     <div className='card h-100'>
-                        <img src={movie.image || `https://placehold.co/600x400?text=${movie.title}`} alt={movie.title} className='card-img-top' />
+                        <img src={`http://localhost:3000/movies_cover/${movie.image}`} alt={movie.title} className='card-img-top' />
                         <div className='card-body'>
                             <h5 className='card-title'>{movie.title}</h5>
                             <p className='card-text'>{movie.abstract}</p>
