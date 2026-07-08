@@ -30,7 +30,7 @@ export default function Details() {
 
 
                 <div className="card my-4 mx-auto" style={{ minWidth: '18rem' }}>
-                    <img src={movie ? `http://localhost:3000/movies_cover/${movie.image}`: "https://placehold.co/600x400?text=Hello+World"} className="card-img-top" alt={movie ? movie.title : ""} />
+                    <img src={movie ? `http://localhost:3000/movies_cover/${movie.image}` : "https://placehold.co/600x400?text=Hello+World"} className="card-img-top mw-25" alt={movie ? movie.title : ""} />
                     <div className="card-body">
                         <h5 className="card-title">{movie ? movie.title : 'Movie Title'}</h5>
                         <p className="card-text">{movie ? movie.abstract : 'Movie Abstract'}</p>
@@ -65,6 +65,56 @@ export default function Details() {
                             <a href="#" className="card-link">Another link</a>
                         </div>
                     </div>
+
+                    <section>
+
+                        <h2 className="form-title">Aggiungi la tua BananaRecensione!</h2>
+                        <form className="row g-3">
+                            <div className="col-md-6">
+                                <label htmlFor="inputEmail4" className="form-label">Email</label>
+                                <input type="email" className="form-control" id="inputEmail4" />
+                            </div>
+                            <div className="col-md-6">
+                                <label htmlFor="inputPassword4" className="form-label">Password</label>
+                                <input type="password" className="form-control" id="inputPassword4" />
+                            </div>
+                            <div className="col-12">
+                                <label htmlFor="inputAddress" className="form-label">Address</label>
+                                <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" />
+                            </div>
+                            <div className="col-12">
+                                <label htmlFor="inputAddress2" className="form-label">Address 2</label>
+                                <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
+                            </div>
+                            <div className="col-md-6">
+                                <label htmlFor="inputCity" className="form-label">City</label>
+                                <input type="text" className="form-control" id="inputCity" />
+                            </div>
+                            <div className="col-md-4">
+                                <label htmlFor="inputState" className="form-label">State</label>
+                                <select defaultValue={"Choose..."} id="inputState" className="form-select">
+                                    <option>Choose...</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
+                            <div className="col-md-2">
+                                <label htmlFor="inputZip" className="form-label">Zip</label>
+                                <input type="text" className="form-control" id="inputZip" />
+                            </div>
+                            <div className="col-12">
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" id="gridCheck" />
+                                    <label className="form-check-label" htmlFor="gridCheck">
+                                        Check me out
+                                    </label>
+                                </div>
+                            </div>
+                            <div className="col-12">
+                                <button type="submit" className="btn btn-primary">Sign in</button>
+                            </div>
+                        </form>
+                    </section>
+
                 </div>
             </div>
         </>
