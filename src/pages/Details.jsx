@@ -26,11 +26,11 @@ export default function Details() {
 
     return (
         <>
-            <div className="row row-cols-2 g-1">
+            <div className="row row-cols-2 g-4">
 
 
                 <div className="card my-4 mx-auto" style={{ minWidth: '18rem' }}>
-                    <img src={movie ? `http://localhost:3000/movies_cover/${movie.image}` : "https://placehold.co/600x400?text=Hello+World"} className="card-img-top mw-25" alt={movie ? movie.title : ""} />
+                    <img src={movie ? `http://localhost:3000/movies_cover/${movie.image}` : "https://placehold.co/600x400?text=Hello+World"} className="card-img-top w-50 mx-auto" alt={movie ? movie.title : ""} />
                     <div className="card-body">
                         <h5 className="card-title">{movie ? movie.title : 'Movie Title'}</h5>
                         <p className="card-text">{movie ? movie.abstract : 'Movie Abstract'}</p>
