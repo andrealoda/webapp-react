@@ -22,6 +22,44 @@ export default function Details() {
         fetchData(url);
     }, []);
 
+
+    function getStars(vote) {
+        return "❤️".repeat(vote) + "🤍".repeat(5 - vote);
+    }
+
+    const initialFormData = {
+        name: "",
+        vote: "",
+        text: ""
+    };
+
+    const [formData, setFormData] = useState(initialFormData);
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.log('submitting review to', url);
+
+        const reviewURL = `${url}/reviews`;
+
+
+        fetch(reviewURL, {
+            method: 'POST',
+            headers: {
+                'COntent-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('review added', data);
+                setFormData(initialFormData);
+
+            })
+            .catch(error => console.error('Error adding review', error));
+    }
+
+
+
     return (
         <>
 
@@ -52,7 +90,7 @@ export default function Details() {
                                 <div className="card mb-3" key={review.id}>
                                     <div className="card-header d-flex justify-content-between align-items-center">
                                         <div> <i className="bi bi-person-bounding-box"></i> {review.name}</div>
-                                        <div>Rating: {review.vote}/5</div>
+                                        <div>Rating: {getStars(review.vote)}</div>
                                     </div>
                                     <div className="card-body">
 
@@ -75,14 +113,14 @@ export default function Details() {
                             <div className="container">
                                 <div className="card p-5">
                                     <h2>Lascia la TUA recensione</h2>
-                                    <form>
+                                    <form onSubmit={handleSubmit}>
                                         <div className="mb-3">
-                                            <label htmlFor="username" className="form-label">Dicci chi sei.</label>
-                                            <input type="text" className="form-control" id="username" name="username" placeholder='Anonymous' autoComplete="off" />
+                                            <label htmlFor="name" className="form-label">Dicci chi sei.</label>
+                                            <input type="text" className="form-control" id="name" name="name" placeholder='Anonymous' autoComplete="off" value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} />
                                         </div>
                                         <div className="mb-3">
                                             <label htmlFor="rating" className="form-label">Quante stelle merita il film?</label>
-                                            <select className="form-select" id="rating" name="rating">
+                                            <select className="form-select" id="vote" name="vote" value={formData.vote} onChange={e => setFormData({ ...formData, vote: e.target.value })}>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
@@ -93,7 +131,7 @@ export default function Details() {
 
                                         <div className="mb-3">
                                             <label htmlFor="review" className="form-label">Raccontaci la tua esperienza con il film.</label>
-                                            <textarea className="form-control" id="review" name="review" rows="3"></textarea>
+                                            <textarea className="form-control" id="review" name="review" rows="3" value={formData.text} onChange={e => setFormData({ ...formData, text: e.target.value })}></textarea>
                                         </div>
                                         <button type="submit" className="btn btn-primary">Invia la tua recensione!</button>
                                     </form>
