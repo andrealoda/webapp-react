@@ -25,7 +25,8 @@ export default function MovieCard() {
             {movies.map((movie) => (
                 <div className='col' key={movie.id}>
                     <div className='card h-100'>
-                        <img src={`http://localhost:3000/movies_cover/${movie.image}`} alt={movie.title} className='card-img-top rounded mx-auto shadow m-1' style={{ width: '200px', height: '280px', objectFit: 'cover' }}/>
+                        <img src={`http://localhost:3000/movies_cover/${movie.image}`} alt={movie.title} 
+                        className='card-img-top rounded mx-auto shadow m-1' style={{ width: '200px', height: '280px', objectFit: 'cover' }}/>
                         <div className='card-body'>
                             <h5 className='card-title'>{movie.title}</h5>
                             <p className='card-text'>{movie.abstract}</p>
