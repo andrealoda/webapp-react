@@ -6,11 +6,14 @@ export default function DefaultLayout() {
 
     return (
         <>
+        <div className="d-flex flex-column min-vh-100">
+
             <AppHeader />
-            <main>
+            <main className="flex-grow-1">
                 <Outlet />
             </main>
             <AppFooter />
+        </div>
         </>
     )
 }

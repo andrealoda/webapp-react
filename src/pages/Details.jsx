@@ -45,7 +45,7 @@ export default function Details() {
         fetch(reviewURL, {
             method: 'POST',
             headers: {
-                'COntent-Type': 'application/json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(formData)
         })
@@ -121,7 +121,7 @@ export default function Details() {
                                             <input type="text" className="form-control" id="name" name="name" placeholder='Anonymous' autoComplete="off" value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} />
                                         </div>
                                         <div className="mb-3">
-                                            <label htmlFor="rating" className="form-label">Quante stelle merita il film?</label>
+                                            <label htmlFor="vote" className="form-label">Quanti ❤️ merita il film?</label>
                                             <select className="form-select" id="vote" name="vote" value={formData.vote} onChange={e => setFormData({ ...formData, vote: e.target.value })}>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>

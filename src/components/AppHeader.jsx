@@ -10,7 +10,7 @@ export default function AppHeader() {
         <header>
             <nav className="navbar navbar-expand-xl navbar-light bg-light">
                 <div className="container">
-                    <h2 className="navbar-brand text-center fs-4 fw-bold">CineBanana</h2>
+                    <h2 className="navbar-brand">CineBanana</h2>
                     <button
                         className="navbar-toggler d-lg-none"
                         type="button"
@@ -34,7 +34,7 @@ export default function AppHeader() {
                             <input
                                 className="form-control me-sm-2"
                                 type="text"
-                                placeholder="Search yout movie"
+                                placeholder="Search"
                             />
                             <button
                                 className="btn btn-outline-success my-2 my-sm-0"

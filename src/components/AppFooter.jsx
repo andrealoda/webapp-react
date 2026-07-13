@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function AppFooter() {
 
     return (
@@ -9,16 +11,20 @@ export default function AppFooter() {
                         <h3>Banana Movies Reviews</h3>
                         <p>Your one-stop destination for movie reviews and recommendations.</p>
                     </div>
-                    <div className="col">
-                        <h3>Links</h3>
-                        <ul className="list-unstyled">
-                            <li><a href="#">Home</a></li>
-                        </ul>
-                    </div>
+
                     <div className="col">
                         <h3>Contact Us</h3>
                         <p>email: banana@movies.com</p>
                     </div>
+
+                    <div className="col">
+                        <h3>Links</h3>
+                        <ul className="list-unstyled">
+                            <li><Link to="/">Home</Link></li>
+                            <li><Link to="/admin">Admin</Link></li>
+                        </ul>
+                    </div>
+
                 </div>
             </div>
         </footer >
