@@ -63,55 +63,57 @@ export default function Details() {
     return (
         <>
 
-            <div>
+            <div className="container">
 
-                <div className="row row-cols-2 g-4">
+                <div className="row row-cols-1">
 
 
-                    <div className="card my-4 mx-auto" style={{ minWidth: '18rem' }}>
-                        <img src={movie ? `http://localhost:3000/movies_cover/${movie.image}` : "https://placehold.co/600x400?text=Hello+World"} className="card-img-top w-50 mx-auto" alt={movie ? movie.title : ""} />
+                    <div className="card my-4 mx-auto shadow-lg bg-white rounded-5 p-5" style={{ minWidth: "12rem" }}>
+                        <img src={movie ? `http://localhost:3000/movies_cover/${movie.image}` : "https://placehold.co/600x400?text=Hello+World"} className="card-img-top w-25 mx-auto" alt={movie ? movie.title : ""} />
                         <div className="card-body">
                             <h5 className="card-title text-center">{movie ? movie.title : 'Movie Title'}</h5>
-                            <p className="card-text">{movie ? movie.abstract : 'Movie Abstract'}</p>
+                            <p className="card-text text-center">{movie ? movie.abstract : 'Movie Abstract'}</p>
                         </div>
                         <ul className="list-group list-group-flush">
-                            <li className="list-group-item">{movie ? movie.director : 'Movie Director'}</li>
-                            <li className="list-group-item">{movie ? movie.genre : 'Genre'}</li>
-                            <li className="list-group-item">{movie ? movie.release_year : 'Release Year'}</li>
+                            <li className="list-group-item"><strong>Director: </strong>{movie ? movie.director : 'Movie Director'}</li>
+                            <li className="list-group-item"><strong>Genre: </strong>{movie ? movie.genre : 'Genre'}</li>
+                            <li className="list-group-item"><strong>Year fo release: </strong>{movie ? movie.release_year : 'Release Year'}</li>
                         </ul>
                     </div>
 
-                    <div className="recensioni d-flex flex-column align-items-center justify-content-start gap-3 mt-5">
+                    <div className="row row-cols-1 row-cols-lg-2 recensioni d-flex align-items-start justify-content-start shadow-lg bg-white rounded-5 p-5">
+                        <section>
 
-                        <h2 className="reviews-title-section">BananaReviews dei nostri recensori:</h2>
+                            <h2 className="reviews-title-section text-center">BananaReviews:</h2>
 
-                        {movie && movie?.reviews.length > 0 && (
-                            movie.reviews.map(review => (
-                                <div className="card mb-3" key={review.id}>
-                                    <div className="card-header d-flex justify-content-between align-items-center">
-                                        <div> <i className="bi bi-person-bounding-box"></i> {review.name}</div>
-                                        <div>Rating: {getStars(review.vote)}</div>
+                            {movie && movie?.reviews.length > 0 && (
+                                movie.reviews.map(review => (
+                                    <div className="card mb-3" key={review.id}>
+                                        <div className="card-header d-flex justify-content-between align-items-center">
+                                            <div> <i className="bi bi-person-bounding-box"></i> {review.name}</div>
+                                            <div>Rating: {getStars(review.vote)}</div>
+                                        </div>
+                                        <div className="card-body">
+
+                                            <p className="card-text">{review.text}</p>
+
+                                        </div>
                                     </div>
-                                    <div className="card-body">
+                                ))
+                            )}
 
-                                        <p className="card-text">{review.text}</p>
-
-                                    </div>
+                            {movie && movie?.reviews.length === 0 && (
+                                <div className="alert alert-info text-center" role="alert">
+                                    No reviews yet. Be the first to review this book!
                                 </div>
-                            ))
-                        )}
-
-                        {movie && movie?.reviews.length === 0 && (
-                            <div className="alert alert-info text-center" role="alert">
-                                No reviews yet. Be the first to review this book!
-                            </div>
-                        )}
+                            )}
 
 
+                        </section>
 
                         <section id="add_review_form" className="my-5">
                             <div className="container">
-                                <div className="card p-5">
+                                <div className="card p-5 shadow-lg bg-white rounded-5">
                                     <h2>Lascia la TUA recensione</h2>
                                     <form onSubmit={handleSubmit}>
                                         <div className="mb-3">

@@ -5,10 +5,11 @@ export default function Home() {
 
     return (
         <>
-            <h1 className="text-center">Homepage</h1>
-            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                <MovieCard />
-
+            <div class="container">
+                <h1 className="text-center">Homepage</h1>
+                <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    <MovieCard />
+                </div>
             </div>
         </>
     )
