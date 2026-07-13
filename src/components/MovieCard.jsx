@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Ring } from 'ldrs/react';
-import 'ldrs/react/Ring.css'
+import AppLoader from "./AppLoader";
 
 export default function MovieCard() {
 
@@ -21,11 +20,7 @@ export default function MovieCard() {
     }, []);
 
     if (!movies) {
-        return (
-            <div className="container d-flex justify-content-center align-items-center vh-100">
-                <Ring size={50} speed={1.5} bgOpacity={0.25} />
-            </div>
-        );
+        return <AppLoader />;
     }
 
     return (

@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
-import { Ring } from 'ldrs/react'
+
 
 
 
